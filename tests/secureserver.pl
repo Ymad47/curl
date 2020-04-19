@@ -61,7 +61,7 @@ my $cmd;
 
 my $pidfile;          # stunnel pid file
 my $logfile;          # stunnel log file
-my $loglevel = 5;     # stunnel log level
+my $loglevel = 6;     # stunnel log level
 my $ipvnum = 4;       # default IP version of stunneled server
 my $idnum = 1;        # default stunneled server instance number
 my $proto = 'https';  # default secure server protocol
@@ -101,11 +101,9 @@ while(@ARGV) {
         }
     }
     elsif($ARGV[0] eq '--accept') {
-        if($ARGV[1]) {
-            if($ARGV[1] =~ /^(\d+)$/) {
-                $accept_port = $1;
-                shift @ARGV;
-            }
+        if($ARGV[1] =~ /^(\d+)$/) {
+            $accept_port = $1;
+            shift @ARGV;
         }
     }
     elsif($ARGV[0] eq '--connect') {
